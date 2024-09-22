@@ -1,4 +1,4 @@
-package com.example;
+package com.fns;
 
 import com.google.inject.Inject;
 import net.runelite.client.game.ItemManager;
@@ -10,6 +10,8 @@ import net.runelite.client.ui.overlay.components.ComponentOrientation;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+
+import static net.runelite.api.MenuAction.RUNELITE_OVERLAY;
 
 public class LastLootOverlay extends OverlayPanel {
 	private final LastLootPlugin plugin;
@@ -23,6 +25,7 @@ public class LastLootOverlay extends OverlayPanel {
 		setPosition(OverlayPosition.TOP_LEFT);
 		setPriority(PRIORITY_HIGH);
 		panelComponent.setBorder(new Rectangle(2, 2, 2, 2));
+		addMenuEntry(RUNELITE_OVERLAY, "Reset Last Loot", "Last Loot Overlay", e -> plugin.reset());
 	}
 
 	@Override

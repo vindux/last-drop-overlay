@@ -1,4 +1,4 @@
-package com.example;
+package com.fns;
 
 import com.google.inject.Inject;
 import lombok.Getter;
@@ -33,14 +33,15 @@ public class LastLootPlugin extends Plugin {
 	}
 
 	@Subscribe
-	public void onNpcLootReceived(final NpcLootReceived npcLootReceived)
-	{
+	public void onNpcLootReceived(final NpcLootReceived npcLootReceived) {
 		final NPC npc = npcLootReceived.getNpc();
 		final Collection<ItemStack> items = npcLootReceived.getItems();
 		final String name = npc.getName();
 		final int combat = npc.getCombatLevel();
-		lastLoot = new LastLoot(name, combat,  items);
-		log.info("Loot received: {}", lastLoot);
+		lastLoot = new LastLoot(name, combat, items);
 	}
 
+	public void reset() {
+		lastLoot = null;
+	}
 }

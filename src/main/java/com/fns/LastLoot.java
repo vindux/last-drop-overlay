@@ -1,4 +1,4 @@
-package com.example;
+package com.fns;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
